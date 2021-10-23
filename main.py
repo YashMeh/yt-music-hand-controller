@@ -148,21 +148,13 @@ while cap.isOpened():
         # draw a line from start to end i.e. the convex points (finger tips)
         # (can skip this part)
         cv2.line(crop_img, start, end, [0, 255, 0], 2)
-        # cv2.circle(crop_img,far,5,[0,0,255],-1)
 
     print("The number of gaps detected %s", count_defects)
     count_matter = [2, 3]
     if count_defects in count_matter:
-        # currentState = "P" if count_defects == 2 else "N"
         button_click(count_defects)
     else:
         currentState = ""
-    # if count_defects == 1:
-    #     prevBut.click()
-    # elif count_defects == 2:
-    #     playBut.click()
-    # elif count_defects == 3:
-    #     nextBut.click()
     k = cv2.waitKey(10)
     if k == 27:
         break
