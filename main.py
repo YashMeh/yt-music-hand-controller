@@ -3,16 +3,22 @@ import numpy as np
 import math
 import sys
 import time
+import validators
 from selenium import webdriver
 from collections import deque
+import os
 
+# URL of website
+url = sys.argv[1]
+
+if not validators.url(url):
+    print("Invalid URL provided")
+    os._exit(0)
 
 driver_path = "./chromedriver"
 # Here Chrome  will be used
 driver = webdriver.Chrome(executable_path=driver_path)
 
-# URL of website
-url = sys.argv[1]
 
 # Opening the website
 driver.get(url)
